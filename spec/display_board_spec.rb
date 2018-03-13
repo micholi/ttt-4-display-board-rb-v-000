@@ -183,8 +183,20 @@ describe "#display_board in 'lib/display_board.rb" do
       # and make a few simple edits to convert the previous example to this
       # example's situation.
 
+      board = ["O", "O", "O", "O", "O", "O", "O", "O", "O"]
+
+      # Don't touch the following lines.
+      output = capture_puts{ display_board(board) } if defined?(display_board)
+      rows = output.split("\n")
+
+      expect(rows[0]).to eq(" X | X | X ")
+      expect(rows[1]).to eq("-----------")
+      expect(rows[2]).to eq(" X | X | X ")
+      expect(rows[3]).to eq("-----------")
+      expect(rows[4]).to eq(" X | X | X ")
+
       # *** Comment the line below by adding a # at the line start ***
-      expect(true).to be(true)
+      # expect(true).to be(true)
     end
   end
 end
